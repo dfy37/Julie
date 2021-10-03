@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Simon">
+	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+	<title>Bilibili~</title>
+</head>
+<body>
+	<div class="banner">
+		<div class="image">
+			<a href="#a"><img src="/static/image/banner.jpg"></a>
+		</div>
+		<div class="navigation">
+			<ul class="nav-link-ul">
+				{% for i in nav_link_ul %}
+					{% if forloop.counter == 11 %}
+						<li class="nav-link-item">
+							<form name="search" method="post">
+								{% csrf_token %}
+								<input type="text" name="keywords" placeholder="juliejulie~" class="search" autocomplete="off">
+							</form> 
+						</li>
+					{% else %}
+						<li class="nav-link-item"><a href="#a" class="link">{{ i }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="categories">
+		<ul class="cat-link-ul">
+			<li class="cat-link-item" style="border-left: none;">
+				<ul class="but-ul">
+					{% for i in but_ul %}
+						<li class="but-item">
+							<a href="#a"><img src={{ i.img }}></a>
+							<a href="#a" class="but-link">{{ i.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li class="cat-link-item">
+				<ul class="theme-ul">
+					{% for i in theme_ul %}
+						<li class="theme-item">
+							<div style="float: left;"><a href="#a" class="theme-link">{{ i }}</a></div>
+							<div class="theme-num-back">999+</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li class="cat-link-item">
+				<ul class="func-ul">
+					{% for i in func_ul %}
+						<li class="func-item"><a href="#a" class="func-link">{{ i }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="recommendation">
+		<ul class="rec-sep-ul">
+			<li class="rec-sep-item"><a href="#a"><img src="/static/image/face.jpg"></a></li>
+			<li class="rec-sep-item">
+				<ul class="video-img-ul">
+					{% for i in video_img_ul %}
+						<li class="video-img-item"><a href="#a"><img src={{ i }}></a></li>
+					{% endfor %}
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="game">
+		<div class="gamevideo">
+			<div class="title">
+				<img src="/static/image/life.jpg">
+				<div class="gv-title">
+					<a href="#a" class="gvt-link">生活</a>
+				</div>
+			</div>
+			<div class="content">
+				<ul class="cnt-ul">
+					{% for i in cnt_ul %}
+						<li class="cnt-item">
+							<a href="#a"><img src={{ i.img }}></a>
+							<div class="gv-desc">
+								<a href="#a" class="gvtitle-link">{{ i.title }}</a>
+							</div>
+							<div class="gv-up">
+								<a href="#a" class="gv-up-link">[up] {{ i.author }}</a>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="rank">
+			<div class="rank-title">排行榜</div>
+			<ol class="rank-ol">
+				{% for i in rank_ol %}
+					{% if forloop.counter == 1 %}
+						<li class="rank-item">
+							<img src={{ i.img }}>
+							<div class="rank-gv-title">
+								<a href="#a" class="rank-link">{{ i.title }}</a>
+								<div style="margin: 2.5vw 0 0 0;"><span class="rank-score">综合得分：{{ i.score }}</span></div>
+							</div>
+						</li>
+					{% else %}
+						<li class="rank-item"><a href="#a" class="rank-link">{{ i.title }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ol>
+		</div>
+	</div>
+</body>
+</html>

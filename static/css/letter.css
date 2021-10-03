@@ -1,0 +1,40 @@
+body
+{
+	background-color: lightpink;
+}
+@font-face
+{
+	font-family: "Bold";
+	src: url("/font/Bold.ttf");
+}
+.letter
+{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+}
+.image
+{
+	display: block;
+	width: auto;
+	height: auto;
+}
+.image img 
+{
+	width: 30vw;
+	height: auto;
+}
+.words
+{
+	color: white;
+	font-family: Bold;
+	font-size: 1.5vw;
+	display: block;
+	width: 60vw;
+}
+.content
+{
+	text-indent: 3vw;
+	line-height: 1.5;
+}
